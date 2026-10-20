@@ -1,0 +1,22 @@
+{
+  "name": "koishi-plugin-chatluna-wordcloud",
+  "description": "分析chatluna消息，分析统计后使用puppeteer渲染输出精美图片",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {},
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin"
+  ],
+  "devDependencies": {},
+  "peerDependencies": {
+    "koishi": "^4.18.7"
+  }
+}
