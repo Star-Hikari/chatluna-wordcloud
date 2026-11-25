@@ -1,22 +1,65 @@
 {
   "name": "koishi-plugin-chatluna-wordcloud",
-  "description": "分析chatluna消息，分析统计后使用puppeteer渲染输出精美图片",
-  "version": "0.0.1",
+  "description": "读取 ChatLuna 聊天记录，统计关键词与互动数据，生成 1080×1920 的二次元群聊日报海报",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "files": [
     "lib",
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
+  "homepage": "https://github.com/Star-Hikari/chatluna-wordcloud#readme",
+  "bugs": {
+    "url": "https://github.com/Star-Hikari/chatluna-wordcloud/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Star-Hikari/chatluna-wordcloud.git"
+  },
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "chatluna",
+    "wordcloud",
+    "词云",
+    "poster",
+    "日报"
   ],
-  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "node -e \"const fs=require('fs');fs.rmSync('lib',{recursive:true,force:true});fs.rmSync('tsconfig.tsbuildinfo',{force:true})\" && node ../../node_modules/typescript/bin/tsc -b tsconfig.json --force && node ../../node_modules/esbuild/bin/esbuild src/index.ts --bundle --platform=node --format=cjs --target=es2022 --packages=external --outfile=lib/index.js",
+    "clean": "node -e \"const fs=require('fs');fs.rmSync('lib',{recursive:true,force:true});fs.rmSync('tsconfig.tsbuildinfo',{force:true})\"",
+    "prepack": "npm run build"
+  },
   "peerDependencies": {
-    "koishi": "^4.18.7"
+    "koishi": "^4.18.7",
+    "koishi-plugin-chatluna": "^1.4.0",
+    "koishi-plugin-puppeteer": "^3.9.0"
+  },
+  "peerDependenciesMeta": {
+    "koishi-plugin-puppeteer": {
+      "optional": true
+    }
+  },
+  "koishi": {
+    "category": "ai",
+    "description": {
+      "zh": "读取 ChatLuna 的聊天记录，统计关键词与互动数据，生成 1080×1920 的二次元群聊日报海报：可换轮廓的词云、每小时发言、平均字数与互动指数，并结合会话预设让模型写一句人设总结。支持 -d 多天、-a 全会话和每日定时推送到群聊 / 私聊。",
+      "en": "Read ChatLuna conversations, analyze keywords and interaction stats, then render a 1080×1920 anime-style daily report poster: word cloud with selectable shapes, hourly activity chart, average message length, interaction index, plus a one-line summary written in the conversation preset's persona. Supports multi-day ranges, all-conversation mode and scheduled delivery to groups or private chats."
+    },
+    "service": {
+      "required": [
+        "database",
+        "chatluna"
+      ],
+      "optional": [
+        "puppeteer"
+      ]
+    }
   }
 }
