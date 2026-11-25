@@ -4,9 +4,16 @@
 
 读取 ChatLuna 的聊天记录，统计关键词与互动数据，生成 **1080×1920** 的二次元群聊日报海报。
 
-![渐变底效果](https://raw.githubusercontent.com/Star-Hikari/chatluna-wordcloud/master/docs/preview.png)
-
-![图片背景 + 毛玻璃效果](https://raw.githubusercontent.com/Star-Hikari/chatluna-wordcloud/master/docs/preview-bg.png)
+<table>
+  <tr>
+    <td width="50%" align="center"><img src="https://raw.githubusercontent.com/Star-Hikari/chatluna-wordcloud/master/docs/preview.png" alt="渐变底效果" width="100%"></td>
+    <td width="50%" align="center"><img src="https://raw.githubusercontent.com/Star-Hikari/chatluna-wordcloud/master/docs/preview-bg.png" alt="图片背景 + 毛玻璃效果" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>渐变底</sub></td>
+    <td align="center"><sub>图片背景 + 毛玻璃</sub></td>
+  </tr>
+</table>
 
 ## 它做什么
 
